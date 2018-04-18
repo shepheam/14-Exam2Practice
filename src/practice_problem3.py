@@ -2,8 +2,8 @@
 PRACTICE Test 2, practice_problem 3.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Ashley Shepherd.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -156,7 +156,7 @@ def practice_problem3a(circles):
       :type sequence: [rg.Circle]
     """
     ####################################################################
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -164,6 +164,12 @@ def practice_problem3a(circles):
     #    TIME ESTIMATE:   10 minutes.
     ####################################################################
 
+    if len(circles) == 0:
+        return 1
+    total = 1
+    for k in range(len(circles)):
+        total = total * circles[k].center.x
+    return total
 
 def run_test_practice_problem3b():
     """ Tests the    practice_problem3b    function. """
@@ -279,6 +285,10 @@ def practice_problem3b(sequence):
     #    TIME ESTIMATE:   8 minutes.
     ####################################################################
 
+    for k in range(len(sequence)-1):
+        if sequence[-1] == sequence[k]: # sequence[-1] means the last thing in the sequence
+            return True
+    return False
 
 def run_test_practice_problem3c():
     """ Tests the    practice_problem3c    function. """
@@ -362,6 +372,12 @@ def practice_problem3c(sequence):
     #    TIME ESTIMATE:   8 minutes.
     ####################################################################
 
+    newList = []
+    for k in range(len(sequence)):
+        if sequence[k] == 0:
+            newList = newList + [k]
+    return newList
+
 
 def run_test_practice_problem3d():
     """ Tests the    practice_problem3d    function. """
@@ -444,6 +460,11 @@ def practice_problem3d(sequence):
     #    TIME ESTIMATE:   8 minutes for each part of this problem.
     ####################################################################
 
+    for k in range(len(sequence)):
+        if sequence[k] == 0:
+            return k
+    return -1
+
 
     ####################################################################
     # TODO: 6. Just ABOVE this TODO, you should have implemented
@@ -461,6 +482,10 @@ def practice_problem3d(sequence):
     #          This solution should *** HAVE NO LOOP (no FOR). ***
     ####################################################################
 
+    newList = practice_problem3c(sequence)
+    if len(newList) == 0:
+        return -1
+    return newList[0]
 
 def run_test_practice_problem3e():
     """ Tests the    practice_problem3e    function. """
@@ -530,6 +555,10 @@ def practice_problem3e(sequence):
     #    TIME ESTIMATE:   8 minutes.
     ####################################################################
 
+    total = 0
+    for k in range(0,len(sequence),2):
+        total = total + sequence[k]
+    return total
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
